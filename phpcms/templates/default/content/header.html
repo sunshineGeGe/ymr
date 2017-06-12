@@ -1,0 +1,31 @@
+<!DOCTYPE html5>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}default_blue.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+<link href="{CSS_PATH}main.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- 导航 star -->
+<div class="header" style="padding:0;">
+	<div class="warp clear">
+{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+<div class="logo"><!--<img src='{IMG_PATH}images/logo.png' />--></div>
+		<ul>
+		<li><a href="{siteurl($siteid)}" class="cur">首页</a></li>
+		{loop $data $r}
+		<li><a href="{$r[url]}">{$r[catname]}</a></li>
+		{/loop}
+		</ul>
+{/pc}	
+	</div>
+</div>
+<!-- 导航 end -->
